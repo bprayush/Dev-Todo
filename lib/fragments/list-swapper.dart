@@ -53,7 +53,7 @@ class ListSwapper extends StatelessWidget {
                     )
                     .toList(),
               ),
-            )
+            ),
           ],
         ),
         Expanded(
