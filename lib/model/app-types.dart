@@ -100,9 +100,10 @@ class PanelData with ChangeNotifier {
   final String subText2;
   final Duration duration;
 
-  PanelData(
-      {@required this.mainText,
-      @required this.subText1,
-      @required this.subText2,
-      @required this.duration});
+  PanelData({
+    @required this.mainText,
+    @required this.subText1,
+    @required this.subText2,
+    @required this.duration,
+  });
 }

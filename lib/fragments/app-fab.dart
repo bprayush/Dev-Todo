@@ -12,8 +12,11 @@ class AppFloatingActionButton extends StatelessWidget {
     fontWeight: FontWeight.bold,
     fontSize: 25,
   );
-  final TextStyle _fabTitleTextStyle =
-      TextStyle(fontWeight: FontWeight.normal, fontSize: 10);
+
+  final TextStyle _fabTitleTextStyle = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontSize: 10,
+  );
 
   final TextStyle _fabItemNumericTextStyle = TextStyle(
     fontSize: 40,
@@ -22,46 +25,69 @@ class AppFloatingActionButton extends StatelessWidget {
   );
 
   final TextStyle _fabItemDetailTextStyle = TextStyle(
-      fontFamily: 'RobotoCondensed',
-      fontSize: 15,
-      fontWeight: FontWeight.w800,
-      color: Colors.black);
+    fontFamily: 'RobotoCondensed',
+    fontSize: 15,
+    fontWeight: FontWeight.w800,
+    color: Colors.black,
+  );
 
-  SpeedDialChild _getSpeedDialChild(BuildContext context, IconData icon,
-      String numericComponent, String message) {
+  SpeedDialChild _getSpeedDialChild(
+    BuildContext context,
+    IconData icon,
+    String numericComponent,
+    String message,
+  ) {
     return SpeedDialChild(
-        child: Icon(icon),
-        backgroundColor: Colors.blueGrey,
-        labelWidget: Container(
-          width: MediaQuery.of(context).size.width - _speedDialOffset,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Text(numericComponent, style: _fabItemNumericTextStyle),
-              SizedBox(width: 10),
-              Expanded(
-                  flex: 1,
-                  child: Text(
-                    message,
-                    style: _fabItemDetailTextStyle,
-                  ))
-            ],
-          ),
+      child: Icon(icon),
+      backgroundColor: Colors.blueGrey,
+      labelWidget: Container(
+        width: MediaQuery.of(context).size.width - _speedDialOffset,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Text(numericComponent, style: _fabItemNumericTextStyle),
+            SizedBox(width: 10),
+            Expanded(
+              flex: 1,
+              child: Text(
+                message,
+                style: _fabItemDetailTextStyle,
+              ),
+            )
+          ],
         ),
-        onTap: () => print('FIRST CHILD'));
+      ),
+      onTap: () => print('FIRST CHILD'),
+    );
   }
 
   List<SpeedDialChild> _getSpeedDialChildren(BuildContext context) {
     const List<Tuple3<IconData, String, String>> items = [
-      Tuple3<IconData, String, String>(Icons.ac_unit, '3',
-          'Notice centrality of text regardless of how many lines of text there are'),
       Tuple3<IconData, String, String>(
-          Icons.airline_seat_flat, '9', 'Reasons to go to bed'),
-      Tuple3<IconData, String, String>(Icons.alarm, '8', 'Alarms set'),
+        Icons.ac_unit,
+        '3',
+        'Notice centrality of text regardless of how many lines of text there are',
+      ),
       Tuple3<IconData, String, String>(
-          Icons.attach_file, '7', 'Paperclips on my desk'),
+        Icons.airline_seat_flat,
+        '9',
+        'Reasons to go to bed',
+      ),
       Tuple3<IconData, String, String>(
-          Icons.check_circle_outline, '4', 'Things going right at the moment'),
+        Icons.alarm,
+        '8',
+        'Alarms set',
+      ),
+      Tuple3<IconData, String, String>(
+        Icons.attach_file,
+        '7',
+        'Paperclips on my desk',
+      ),
+      Tuple3<IconData, String, String>(
+        Icons.check_circle_outline,
+        '4',
+        'Things going right at the moment',
+      ),
     ];
 
     return items

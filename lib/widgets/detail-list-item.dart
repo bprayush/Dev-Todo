@@ -55,7 +55,9 @@ class _DetailListItemState extends State<DetailListItem> {
                                     flex: 1,
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 2.0, horizontal: 5.0),
+                                        vertical: 2.0,
+                                        horizontal: 5.0,
+                                      ),
                                       child: Text(
                                         widget.panelData.mainText,
                                         style: kTaskTextStyle,
@@ -64,8 +66,9 @@ class _DetailListItemState extends State<DetailListItem> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child:
-                                        VisualTime(widget.panelData.duration),
+                                    child: VisualTime(
+                                      widget.panelData.duration,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -81,51 +84,67 @@ class _DetailListItemState extends State<DetailListItem> {
                     Visibility(
                       visible: isExtraDetailVisible,
                       child: Expanded(
-                          child: Container(
-                              child: Table(
-                        columnWidths: {
-                          0: FractionColumnWidth(0.2),
-                          1: FractionColumnWidth(0.01),
-                          2: FractionColumnWidth(0.78)
-                        },
-                        children: [
-                          TableRow(children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(3.0, 3.0, 0.0, 3.0),
-                              child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Sub Text 1:',
-                                      style: kOperationTextStyle)),
-                            ),
-                            Text(' '),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 3.0, horizontal: 0.0),
-                              child: Text(widget.panelData.subText1,
-                                  style: kOperationTextStyle),
-                            )
-                          ]),
-                          TableRow(children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(3.0, 3.0, 0.0, 3.0),
-                              child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Subtext 2:',
-                                      style: kOperationTextStyle)),
-                            ),
-                            Text(' '),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 3.0, horizontal: 0.0),
-                              child: Text(widget.panelData.subText2,
-                                  style: kOperationTextStyle),
-                            )
-                          ])
-                        ],
-                      ))),
-                    )
+                        child: Container(
+                          child: Table(
+                            columnWidths: {
+                              0: FractionColumnWidth(0.2),
+                              1: FractionColumnWidth(0.01),
+                              2: FractionColumnWidth(0.78),
+                            },
+                            children: [
+                              TableRow(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        3.0, 3.0, 0.0, 3.0),
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Sub Text 1:',
+                                        style: kOperationTextStyle,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(' '),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 3.0, horizontal: 0.0),
+                                    child: Text(
+                                      widget.panelData.subText1,
+                                      style: kOperationTextStyle,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              TableRow(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        3.0, 3.0, 0.0, 3.0),
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Subtext 2:',
+                                        style: kOperationTextStyle,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(' '),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 3.0, horizontal: 0.0),
+                                    child: Text(
+                                      widget.panelData.subText2,
+                                      style: kOperationTextStyle,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 //Divider( height: 3, color: Colors.white,)
@@ -185,7 +204,8 @@ class _DetailListItemState extends State<DetailListItem> {
                       icon: Icons.archive,
                       onTap: () {
                         activeState.movePanelToBottom(
-                            movePanel: widget.panelData);
+                          movePanel: widget.panelData,
+                        );
                       },
                     ),
                   ),

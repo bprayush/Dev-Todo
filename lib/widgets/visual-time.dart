@@ -2,16 +2,15 @@ import 'package:devscreening/helpers/styles.dart';
 import 'package:flutter/material.dart';
 
 class VisualTime extends StatefulWidget {
-  Duration _elapsedTime;
+  final Duration _elapsedTime;
 
-  VisualTime(this._elapsedTime) {}
+  VisualTime(this._elapsedTime);
 
   @override
   _VisualTimeState createState() => _VisualTimeState();
 }
 
 class _VisualTimeState extends State<VisualTime> {
-  @override
   int hoursFrom(Duration d) {
     return d.inHours;
   }

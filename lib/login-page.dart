@@ -52,23 +52,25 @@ class _LoginPageState extends State<LoginPage>
                   repeatPauseDuration: Duration(seconds: 2),
                   startDelay: Duration(seconds: 1),
                   child: Material(
-                      elevation: 8.0,
-                      shape: CircleBorder(),
-                      child: CircleAvatar(
-                        backgroundColor: _primaryColour,
-                        child: FlutterLogo(
-                          size: 50.0,
-                        ),
-                        radius: 50.0,
-                      )),
+                    elevation: 8.0,
+                    shape: CircleBorder(),
+                    child: CircleAvatar(
+                      backgroundColor: _primaryColour,
+                      child: FlutterLogo(
+                        size: 50.0,
+                      ),
+                      radius: 50.0,
+                    ),
+                  ),
                 ),
                 DelayedAnimation(
                   child: Text(
                     "Welcome...",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35.0,
-                        color: _primaryColour),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35.0,
+                      color: _primaryColour,
+                    ),
                   ),
                   delay: _delayedAmount + 1000,
                 ),
@@ -76,9 +78,10 @@ class _LoginPageState extends State<LoginPage>
                   child: Text(
                     "This is a Flutter test app",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35.0,
-                        color: _primaryColour),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35.0,
+                      color: _primaryColour,
+                    ),
                   ),
                   delay: _delayedAmount + 2000,
                 ),
@@ -88,7 +91,10 @@ class _LoginPageState extends State<LoginPage>
                 DelayedAnimation(
                   child: Text(
                     "Recreate as closely as possible.",
-                    style: TextStyle(fontSize: 20.0, color: _primaryColour),
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: _primaryColour,
+                    ),
                   ),
                   delay: _delayedAmount + 3000,
                 ),
@@ -120,25 +126,29 @@ class _LoginPageState extends State<LoginPage>
                   child: GestureDetector(
                     onTap: () {
                       showDialog(
-                          context: context,
-                          builder: (_) => SimpleAlertDialog(
-                                message: 'Are you sure you wish to exit?',
-                                rightButton: TitleAndAction(
-                                    title: 'Exit',
-                                    action: () => SystemChannels.platform
-                                        .invokeMethod('SystemNavigator.pop')),
-                                middleButton: TitleAndAction(
-                                    title: 'Cancel',
-                                    action: () => Navigator.pop(context)),
-                              ));
+                        context: context,
+                        builder: (_) => SimpleAlertDialog(
+                          message: 'Are you sure you wish to exit?',
+                          rightButton: TitleAndAction(
+                            title: 'Exit',
+                            action: () => SystemChannels.platform
+                                .invokeMethod('SystemNavigator.pop'),
+                          ),
+                          middleButton: TitleAndAction(
+                            title: 'Cancel',
+                            action: () => Navigator.pop(context),
+                          ),
+                        ),
+                      );
                       //
                     },
                     child: Text(
                       "I DON'T WANT TO PROCEED",
                       style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: _primaryColour),
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: _primaryColour,
+                      ),
                     ),
                   ),
                   delay: _delayedAmount + 5000,
@@ -174,7 +184,10 @@ class _LoginPageState extends State<LoginPage>
 
   void _onTapUp(TapUpDetails details) {
     _controller.reverse();
-    Navigator.of(context)
-        .push(slideFromRightTransition(MyHomePage(title: "Flutter Test")));
+    Navigator.of(context).push(
+      slideFromRightTransition(
+        MyHomePage(title: "Flutter Test"),
+      ),
+    );
   }
 }

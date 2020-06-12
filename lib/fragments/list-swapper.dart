@@ -43,59 +43,66 @@ class ListSwapper extends StatelessWidget {
               child: ListView(
                 shrinkWrap: true,
                 children: appState.topList
-                    .map((e) => DetailListItem(
-                          panelData: e,
-                          canAssign: false,
-                          canRemove: true,
-                          panelColour: Colors.green,
-                        ))
+                    .map(
+                      (e) => DetailListItem(
+                        panelData: e,
+                        canAssign: false,
+                        canRemove: true,
+                        panelColour: Colors.green,
+                      ),
+                    )
                     .toList(),
               ),
             )
           ],
         ),
         Expanded(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(5),
-              child: Text(
-                'Slide panel right to reveal button',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.grey[800],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: Text(
+                  'Slide panel right to reveal button',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.grey[800],
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (notification) {
-                  //AppScaffoldState s = Provider.of<AppScaffoldState>( context, listen: false );
-                  bool isScrolling = (notification is UserScrollNotification &&
-                              notification.direction == ScrollDirection.idle) ||
-                          notification is ScrollEndNotification
-                      ? false
-                      : true;
+              Expanded(
+                child: NotificationListener<ScrollNotification>(
+                  onNotification: (notification) {
+                    //AppScaffoldState s = Provider.of<AppScaffoldState>( context, listen: false );
+                    bool isScrolling =
+                        (notification is UserScrollNotification &&
+                                    notification.direction ==
+                                        ScrollDirection.idle) ||
+                                notification is ScrollEndNotification
+                            ? false
+                            : true;
 
-                  appState.isScrolling = isScrolling;
+                    appState.isScrolling = isScrolling;
 
-                  return true;
-                },
-                child: ListView(
-                  children: appState.bottomList
-                      .map((e) => DetailListItem(
+                    return true;
+                  },
+                  child: ListView(
+                    children: appState.bottomList
+                        .map(
+                          (e) => DetailListItem(
                             panelData: e,
                             canAssign: true,
                             canRemove: false,
-                          ))
-                      .toList(),
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
               ),
-            ),
-          ],
-        ))
+            ],
+          ),
+        )
       ],
     );
   }
