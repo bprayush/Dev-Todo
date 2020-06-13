@@ -1,5 +1,7 @@
-import 'package:devscreening/login-page.dart';
+import 'package:devscreening/src/assets/assets.dart';
+import 'package:devscreening/src/assets/screen_size.dart';
 import 'package:devscreening/src/locator.dart';
+import 'package:devscreening/src/ui/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 
@@ -14,16 +16,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Dev TODO',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primaryColor: AppColors.DARK_BLUE,
+        fontFamily: 'Giroy',
       ),
       builder: (context, child) {
         ScreenUtil.init(
           context,
-          height: 1920.0,
-          width: 1080.0,
+          height: ScreenSize.HEIGHT,
+          width: ScreenSize.WIDTH,
         );
         return child;
       },
