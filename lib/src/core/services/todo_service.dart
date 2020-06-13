@@ -19,7 +19,7 @@ class TodoService {
 
   void assign(int index) {
     if (index < bottomList.length) {
-      topList.add(bottomList[index]);
+      topList.insert(0, bottomList[index]);
       bottomList.removeAt(index);
     }
   }

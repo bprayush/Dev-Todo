@@ -6,7 +6,7 @@ class DoneWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: ScreenUtil().setWidth(327),
-      height: ScreenUtil().setHeight(50),
+      height: ScreenUtil().setHeight(60),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(

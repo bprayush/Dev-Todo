@@ -12,7 +12,7 @@ class SlidableButton extends StatelessWidget {
     Key key,
     @required this.backGroundColor,
     @required this.color,
-    @required this.onTap,
+    this.onTap,
     @required this.icon,
   }) : super(key: key);
 
@@ -20,8 +20,8 @@ class SlidableButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: ScreenUtil().setWidth(20),
-        bottom: ScreenUtil().setWidth(20),
+        // top: ScreenUtil().setWidth(30),
+        bottom: ScreenUtil().setHeight(15),
         left: ScreenUtil().setWidth(15),
         right: ScreenUtil().setWidth(15),
       ),

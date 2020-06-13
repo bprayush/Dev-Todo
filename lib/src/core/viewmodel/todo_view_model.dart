@@ -9,15 +9,34 @@ class TodoViewModel extends BaseModel {
   List<PanelData> get topList => _todoService.topList;
   List<PanelData> get bottomList => _todoService.bottomList;
 
-  void addToTop(int index) {
+  bool _isScrolling = false;
+  bool get isScrolling => _isScrolling;
+
+  void assign(int index) {
     setBusy(true);
     _todoService.assign(index);
     setBusy(false);
   }
 
-  void removeFromTop(int index) {
+  void delete(int index) {
     setBusy(true);
     _todoService.delete(index);
     setBusy(false);
+  }
+
+  void scrolling() {
+    if (!_isScrolling) {
+      setBusy(true);
+      _isScrolling = true;
+      setBusy(false);
+    }
+  }
+
+  void scrollIdle() {
+    if (_isScrolling) {
+      setBusy(true);
+      _isScrolling = false;
+      setBusy(false);
+    }
   }
 }

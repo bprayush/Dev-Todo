@@ -5,10 +5,18 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class TodoContainer extends StatefulWidget {
   final bool done;
+  final Function assign;
+  final Function delete;
+  final String title;
+  final Duration time;
 
   const TodoContainer({
     Key key,
     this.done = false,
+    this.assign,
+    this.delete,
+    @required this.title,
+    @required this.time,
   }) : super(key: key);
 
   @override
@@ -33,22 +41,29 @@ class _TodoContainerState extends State<TodoContainer>
         },
         child: Slidable(
           actionPane: SlidableDrawerActionPane(),
+          closeOnScroll: true,
           actions: <Widget>[
             if (!widget.done)
-              SlidableButton(
-                icon: FontAwesomeIcons.check,
-                onTap: () {},
-                backGroundColor: AppColors.LIGHT_GREEN,
-                color: AppColors.GREEN,
+              SlideAction(
+                color: AppColors.MEDIUM_GREY,
+                onTap: widget.assign,
+                child: SlidableButton(
+                  icon: FontAwesomeIcons.check,
+                  backGroundColor: AppColors.LIGHT_GREEN,
+                  color: AppColors.GREEN,
+                ),
               ),
           ],
           secondaryActions: <Widget>[
             if (widget.done)
-              SlidableButton(
-                icon: FontAwesomeIcons.solidTrashAlt,
-                onTap: () {},
-                backGroundColor: AppColors.LIGHT_RED,
-                color: AppColors.RED,
+              SlideAction(
+                color: AppColors.MEDIUM_GREY,
+                onTap: widget.delete,
+                child: SlidableButton(
+                  icon: FontAwesomeIcons.solidTrashAlt,
+                  backGroundColor: AppColors.LIGHT_RED,
+                  color: AppColors.RED,
+                ),
               ),
           ],
           child: AnimatedContainer(
@@ -85,7 +100,7 @@ class _TodoContainerState extends State<TodoContainer>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Complete Flutter UI App challenge and upload it on Github',
+                        '${widget.title}',
                         style: TextStyle(
                           color: AppColors.CUSTOM_BLACK,
                           fontSize: FontSize.fontSize16,
@@ -101,7 +116,7 @@ class _TodoContainerState extends State<TodoContainer>
                           'Sub-text 1',
                           style: TextStyle(
                             color: AppColors.CUSTOM_BLACK,
-                            fontSize: FontSize.fontSize16,
+                            fontSize: FontSize.fontSize14,
                             fontWeight: FontWeight.w600,
                             height: ScreenUtil().setHeight(1.5),
                           ),
@@ -113,7 +128,7 @@ class _TodoContainerState extends State<TodoContainer>
                           'Sub-text 2',
                           style: TextStyle(
                             color: AppColors.CUSTOM_BLACK,
-                            fontSize: FontSize.fontSize16,
+                            fontSize: FontSize.fontSize14,
                             fontWeight: FontWeight.w600,
                             height: ScreenUtil().setHeight(1.5),
                           ),
@@ -125,7 +140,7 @@ class _TodoContainerState extends State<TodoContainer>
                           'Sub-text 3',
                           style: TextStyle(
                             color: AppColors.CUSTOM_BLACK,
-                            fontSize: FontSize.fontSize16,
+                            fontSize: FontSize.fontSize14,
                             fontWeight: FontWeight.w600,
                             height: ScreenUtil().setHeight(1.5),
                           ),
@@ -137,7 +152,7 @@ class _TodoContainerState extends State<TodoContainer>
                           'Sub-text 4',
                           style: TextStyle(
                             color: AppColors.CUSTOM_BLACK,
-                            fontSize: FontSize.fontSize16,
+                            fontSize: FontSize.fontSize14,
                             fontWeight: FontWeight.w600,
                             height: ScreenUtil().setHeight(1.5),
                           ),
@@ -147,7 +162,7 @@ class _TodoContainerState extends State<TodoContainer>
                   ),
                 ),
                 Text(
-                  '1hr 25m',
+                  '${widget.time.inHours}hr ${widget.time.inMinutes % 60}m',
                   style: TextStyle(
                     color: AppColors.DARK_GREY,
                     fontSize: FontSize.fontSize14,
