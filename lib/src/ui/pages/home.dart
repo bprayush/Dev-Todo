@@ -76,21 +76,6 @@ class HomePage extends StatelessWidget {
                     duration: Duration(milliseconds: 300),
                     child: model.topList.length == 0
                         ? DoneWidget()
-                        // : ListView.builder(
-                        //     shrinkWrap: true,
-                        //     itemCount: model.topList.length,
-                        //     physics: BouncingScrollPhysics(),
-                        //     itemBuilder: (context, index) {
-                        //       return TodoContainer(
-                        //         title: model.topList[index].mainText,
-                        //         time: model.topList[index].duration,
-                        //         done: true,
-                        //         delete: () {
-                        //           model.delete(index);
-                        //         },
-                        //       );
-                        //     },
-                        //   ),
                         : AnimatedList(
                             key: _topListKey,
                             shrinkWrap: true,
@@ -159,19 +144,6 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: ScreenUtil().setWidth(328),
-                    // child: ListView.builder(
-                    //   itemCount: model.bottomList.length,
-                    //   physics: BouncingScrollPhysics(),
-                    //   itemBuilder: (context, index) {
-                    //     return TodoContainer(
-                    //       title: model.bottomList[index].mainText,
-                    //       time: model.bottomList[index].duration,
-                    //       assign: () {
-                    //         model.assign(index);
-                    //       },
-                    //     );
-                    //   },
-                    // ),
                     child: AnimatedList(
                       key: _bottomListKey,
                       initialItemCount: model.bottomList.length,
@@ -190,8 +162,8 @@ class HomePage extends StatelessWidget {
                               if (_bottomListKey.currentState != null) {
                                 _bottomListKey.currentState.removeItem(
                                   index,
-                                  (context, animation) => SizeTransition(
-                                    sizeFactor: animation,
+                                  (context, animation) => FadeTransition(
+                                    opacity: animation,
                                   ),
                                   duration: Duration(milliseconds: 300),
                                 );
