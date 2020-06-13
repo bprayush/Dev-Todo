@@ -19,15 +19,10 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: ScreenUtil().setWidth(width),
-      height: ScreenUtil().setHeight(height),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(
-          ScreenUtil().setWidth(20),
-        ),
+    return Material(
+      color: color,
+      borderRadius: BorderRadius.circular(
+        ScreenUtil().setWidth(20),
       ),
       child: InkWell(
         onTap: onTap,

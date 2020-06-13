@@ -2,7 +2,6 @@ import 'package:devscreening/src/assets/assets.dart';
 import 'package:devscreening/src/ui/widgets/custom_floating_action_button.dart';
 import 'package:devscreening/src/ui/widgets/todo_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class HomePage extends StatelessWidget {
   @override
